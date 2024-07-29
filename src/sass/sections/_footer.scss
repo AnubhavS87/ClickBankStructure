@@ -1,0 +1,51 @@
+.footer {
+    background-image: linear-gradient( 
+                        to right top, 
+                        rgba(lighten($color-1ry, 50%), 0.9) ,
+                        rgb($color-1ry, 0.7));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 35vh; //else space-evenly will not work
+    &>* {
+        //border: .1rem solid rgba(40, 26, 145, 0.8); // give this to identify the tag you are working on
+    }
+    &-logo {
+        width: 15vh;
+        //margin: 5vh;
+    }
+
+    &-text {
+        
+        display: flex;
+        justify-content: space-evenly;
+        &>*{
+            //border: .5rem solid rgb(26,145,115, 0.8); // give this to identify the tag you are working on
+            width: 33.3%;
+        }
+
+        &-navigation {
+            width: 45%;
+            &__linklist {
+                //border: .5rem solid rgba(145, 26, 26, 0.8); // give this to identify the tag you are working on
+            
+                display: flex;
+                @media only screen and (max-width: $bp-600) {
+                    flex-direction: column;
+                }
+                justify-content: space-between;
+            }
+        }
+    }
+    
+    a{
+        &:hover,
+        &:active,
+        &:focus {
+            transform: rotate(-3deg) scale(1.2);
+        }
+    
+        
+    }
+}

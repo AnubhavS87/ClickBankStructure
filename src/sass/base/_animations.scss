@@ -1,0 +1,108 @@
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    80% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    80% {
+        transform: translateX(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInUpCaption {
+    0% {
+        opacity: 0;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+                    
+    }
+
+    100% {
+        opacity: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes moveInUpFeature {
+    0% {
+        top: 100%;
+        left: 0%;
+        //transform: translate(-50%, -50%);
+                    
+    }
+
+    100% {
+        top: 0%;
+        left: 0%;
+        //transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(-3rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveBackgroundUp {
+    0% {
+        background-position: -100% -20%;
+    }
+
+    100% {
+        background-position: center;
+    }
+}

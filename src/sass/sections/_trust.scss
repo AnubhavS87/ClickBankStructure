@@ -1,0 +1,145 @@
+.trust {
+    // height: 85vh;
+    // @media only screen and (max-width: $bp-600) {
+    //     height: calc($card-height*3); //((64*3)+10)vh; 
+    // }
+    &>*{
+        //border: .5rem solid rgb(26,145,115, 0.8);
+    } 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 2rem;
+    
+    &-cards{
+        align-self: normal;
+        display: flex;
+        justify-content: space-evenly;
+        flex-flow: wrap;
+        
+        &>*{
+            width: 25%;
+            @media only screen and (max-width: $bp-600) {
+                width: 100%;
+                &:not(:last-child) {
+                    margin-bottom: 2rem;
+                }
+            }
+    
+        }
+        
+        
+    }
+}
+
+.card {
+
+    // FUNCTIONALITY
+    /*
+    1. 2 divs are made, front and back
+    2. back is currently below front
+    3. we make both div postion absolute, top 0 left 0
+    4. now back will overlap front
+    5. rotate back by 180deg, this will bring its backside
+    5. make backface-visibility:hidden, so backside will get hidden
+    6. since backside of back is hidden, front (which is below) will now be visible
+
+
+    a. This was updated with only flex
+    b. the backside was transform: translate (-64vh) to move backside up
+    c. this was previously done by position:absolute top:0 left:0
+    */
+
+    perspective: 150rem;   // this gives the rotation a
+    -moz-perspective: 150rem; // 3D effect
+    
+    //position: relative;
+    height: $card-height;
+    &__side {
+        height: $card-height;
+        transition: all .8s ease;
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+        width: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+        &--front {
+            background-color: $color-5ry;
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, lighten($color-4ry,0%), darken($color-4ry,20%));
+            }
+
+            &-2 {
+                background-image: linear-gradient(to right bottom, lighten($color-2ry,20%), darken($color-2ry,20%));
+            }
+
+            &-3 {
+                background-image: linear-gradient(to right bottom, lighten($color-5ry,20%), darken($color-5ry,20%));
+            }
+        }
+
+        &--back {
+            transform: translateY(-$card-height) rotateY(180deg);
+
+            &-1 {
+                background-image: linear-gradient(to left bottom, lighten($color-4ry, 0%), darken($color-4ry,20%));
+            }
+
+            &-2 {
+                background-image: linear-gradient(to left bottom, lighten($color-2ry,20%), darken($color-2ry,20%));
+            }
+
+            &-3 {
+                background-image: linear-gradient(to left bottom, lighten($color-5ry,20%), darken($color-5ry,20%));
+            }
+        }
+    }
+  
+
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back {
+        transform: translateY(-$card-height) rotateY(0);
+    }
+
+    // FRONT SIDE STYLING
+    &__picture {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-blend-mode: screen;
+        
+        height: 100%; //for image to fully fit the card
+        width: 100%;
+
+        //-webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        //clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        
+        &--1 {
+            background-image: linear-gradient(to right bottom, lighten($color-4ry, 0%), darken($color-4ry,20%)), 
+            url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEiUGYjTXmMbR9BMxH6iEZHgYP6gw7QKQTk3-86uAtSQ-ghrvXo_yAg2_pB2HP_cYB6FwuMZmln5Cicvr7r9ADVb20570GTfV-6AGkWa18VLBElI7AJwAHWwG_UDygDsI1QgLQoazwBpqzn6iOuyqKMax09CeGOyI3_tDE4DCWQmMSDqKJW237FX77R9Ag/s16000/ribbon-1-341x341.webp);
+        }
+
+        &--2 {
+            background-image: linear-gradient(to right bottom, lighten($color-2ry, 40%), darken($color-2ry,20%)), 
+            url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEiUGYjTXmMbR9BMxH6iEZHgYP6gw7QKQTk3-86uAtSQ-ghrvXo_yAg2_pB2HP_cYB6FwuMZmln5Cicvr7r9ADVb20570GTfV-6AGkWa18VLBElI7AJwAHWwG_UDygDsI1QgLQoazwBpqzn6iOuyqKMax09CeGOyI3_tDE4DCWQmMSDqKJW237FX77R9Ag/s16000/ribbon-1-341x341.webp);
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom, lighten($color-5ry, 40%), darken($color-5ry,20%)), 
+            url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEiUGYjTXmMbR9BMxH6iEZHgYP6gw7QKQTk3-86uAtSQ-ghrvXo_yAg2_pB2HP_cYB6FwuMZmln5Cicvr7r9ADVb20570GTfV-6AGkWa18VLBElI7AJwAHWwG_UDygDsI1QgLQoazwBpqzn6iOuyqKMax09CeGOyI3_tDE4DCWQmMSDqKJW237FX77R9Ag/s16000/ribbon-1-341x341.webp);
+        }
+    }
+
+}

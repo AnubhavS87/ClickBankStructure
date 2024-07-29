@@ -1,0 +1,44 @@
+.ingredients{
+    //border: .5rem solid $color-1ry;
+    &>*{
+       //border: .5rem solid $color-1ry;
+    }
+    //padding: 10rem 0;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-details{
+        &__nutrient {
+            &>*{
+                //border: .1rem solid $color-5ry;
+                flex: 0 0 40%;
+             }
+             &:not(:first-child){
+                margin-top: 5rem;
+             }
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            &:nth-child(odd) {
+                flex-direction: row;
+            }
+            &:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+
+            &-img{
+                display: block;
+                filter: drop-shadow(0 1rem 1rem lighten($color-black,30%));
+            
+            }
+
+            &-text {
+                &-details{
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}

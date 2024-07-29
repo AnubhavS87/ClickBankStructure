@@ -1,0 +1,130 @@
+.social {
+    //border: .5rem solid $color-1ry;
+    //height: 85vh;
+    padding: 10rem 0;
+    background-image: linear-gradient( 
+                        to right bottom, 
+                        rgba(lighten($color-5ry, 25%), 0.7) ,
+                        rgb($color-5ry, 0.7));
+    transform: skewY(-5deg);
+    @media only screen and (max-width: $bp-600) {
+        transform: skewY(-20deg);
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    &>*{
+         //border: .5rem solid rgb($color-1ry, 0.8); // give this to identify the tag you are working on
+         transform: skewY(5deg);
+         @media only screen and (max-width: $bp-600) {
+            transform: skewY(20deg);
+        }
+     }
+
+     &-reviews {
+        display: flex;
+        //flex-direction: column;
+        justify-content: space-evenly;
+        flex-flow: wrap;
+        align-items: center;
+
+        &-story {
+            width: 60%;
+            @media only screen and (max-width: $bp-600) {
+                width: 85%;
+            }
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            &>*{
+               // border: .5rem solid rgb($color-1ry, 0.8); // give this to identify the tag you are working on                
+               min-width: 20%;
+            }
+            &:not(:last-child) {
+                margin-bottom: 2rem;
+            }
+            box-shadow: 0 3rem 6rem rgba($color-black, .1);
+            border-radius: 3px;
+            background-color: rgba($color-white, .6);
+            @media only screen and (min-width: $bp-600) {
+                transform: skewX(-12deg);
+                &>*{
+                    transform: skewX(12deg);
+                }
+            }
+
+            &__photo{
+                width: 20%;
+                @media only screen and (max-width: $bp-600) {
+                    width: 60%;
+                }
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                &>*{
+                   // border: .5rem solid rgb($color-1ry, 0.8); // give this to identify the tag you are working on                
+                 
+                }
+                &-img{
+                    clip-path: circle(46%);
+                    display: block;
+                    transition: all .3s;
+                                
+                }
+                &-caption{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    color: $color-white;
+                    text-transform: uppercase;
+                    font-size: 1.2rem;
+                    opacity: 0;
+                    transition: all .5s;
+                }
+
+                
+                
+            }
+
+            &__text {
+                width: 60%;
+                font-size: 2rem;
+                @media only screen and (max-width: $bp-600) {
+                    width: 100%;
+                }
+                margin: 1rem 1rem;
+                transition: all .5s;
+
+                &-comments{
+                    filter: blur(3px) brightness(80%);
+                
+                }
+                    
+            }
+
+            &:hover &__photo-caption{
+                opacity: 1;
+                animation: moveInUpCaption .5s ease-out;
+                animation-fill-mode: backwards;
+            }
+
+            &:hover &__photo-img {
+                transform: scale(0.9);
+                filter: blur(3px) brightness(80%);
+            }
+
+            &:hover &__text-comments {
+                filter: blur(0px) brightness(100%);
+            }
+        }
+
+        
+
+     }
+
+     
+}

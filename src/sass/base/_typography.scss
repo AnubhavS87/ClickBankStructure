@@ -1,0 +1,86 @@
+.section-heading {
+    margin-bottom: 4rem;
+    font-family: $font-heading;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3.5rem;
+    max-width: 90%;
+    font-weight: 800;
+    letter-spacing: .2rem;
+    background-image: linear-gradient(
+            to right top,
+            $color-3ry,
+            $color-1ry
+    );
+    -webkit-background-clip: text; // both of these needed
+    color: transparent;            // to color the heading
+   
+    span {
+        color: $color-white;
+    
+    
+    }
+
+    &:hover {
+        transform: skewY(2deg) skewX(15deg) scale(1.1);
+        text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+    }
+
+    transition: all 0.2s;
+}
+
+.section-subheading{
+    font-size: 3.5rem;
+}
+
+.read-more-link{
+    margin-top: 10rem;
+    a {
+        border-bottom: 1px solid $color-1ry;
+        padding: 0.3rem;
+        transition: all .5s;
+        font-size: 2.5rem;
+        text-transform: none;
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: lighten($color-1ry,15%); 
+            font-weight: 500;
+        }
+    }
+    
+ }
+
+ .btn {
+    &,
+    &:link,
+    &:visited {
+    margin: 0rem 0rem 5rem 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: $font-heading;
+    font-size: 4rem; 
+    @media only screen and (max-width: $bp-600) { 
+        font-size: 2.1rem; 
+    }
+    color: $color-4ry;
+    text-transform: uppercase;
+    text-shadow: 0 3px 4px lighten($color-1ry,0%);
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        background-image: linear-gradient( to left,
+                            lighten($color-1ry,20%),
+                            $color-3ry);
+        display: inline-block;
+        border-radius: 100px;
+        border: .5rem solid $color-2ry;
+        
+    }
+    transition: all 0.2s;
+    &:hover {
+        transform: translateX(-50%)  translateY(-2%);
+        box-shadow: 0 3px 4px lighten($color-1ry,20%);
+        color: darken($color-4ry, 0%) ;
+        
+    }
+}

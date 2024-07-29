@@ -1,0 +1,29 @@
+.hero {
+    //border: .5rem solid rgb(26,145,115, 0.8); // give this to identify the tag you are working on
+    height: 85vh;
+    
+    background-image:linear-gradient( 
+                        to left top, 
+                        rgba(lighten($color-1ry, 60%), 0.5) ,
+                        rgb($color-1ry, 0.5)), 
+                    url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhShdFMSwzEf-TsQ60i5orSmm1fD7Hy-LJCHwev9GVe4ddOv5TDZHLlANgJW0oKQ2FSUKfmReZ9xdNJ_exZeYgoBY3D_ym7ucT85Z0fBYs22tFMmI8x_kQcw8yw1P1LdGqvH4NIQ15x1oS38WatHsxy-R1iDjzwqiHlEQTsgkGz9oMckllmYsyU13TIDXuX/s16000/nzm11-1072x1407.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    //background-position: 100px 50%;
+    animation : moveBackgroundUp 2s ease 2s;
+    animation-fill-mode: forwards;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); // the path from https://bennettfeely.com/clippy/
+
+    display: flex;
+
+    &-logo{
+        //border: .5rem solid rgb(26,145,115, 0.8);
+        margin: 1vh;
+        width: 12vh;
+        height: 6vh;
+        &:hover {
+            width: 15vh;
+        }
+    }
+
+}
